@@ -95,6 +95,6 @@
 
 
 %% Plot
-    % manifplot_periodic(manif);
+    manifplot_periodic(manif);
 
 %----------------
