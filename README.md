@@ -1,0 +1,1 @@
+# Computing-1D-manifolds-in-maps-periodic-points
