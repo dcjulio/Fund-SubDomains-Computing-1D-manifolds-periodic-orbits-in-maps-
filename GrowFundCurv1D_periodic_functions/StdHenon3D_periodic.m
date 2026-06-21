@@ -43,42 +43,6 @@ classdef StdHenon3D_periodic
         end
 
 
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        %%%%%%%%%%% FIXED POINTS %%%%%%%%%%%%%
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    
-        % > -------- fixed points 
-        function fixpinfo=fixpoints(opts)
-
-            thesystem=opts.thesystem;
-
-            a=opts.par.a;
-            b=opts.par.b;
-            xi=opts.par.xi;
-
-            fixpinfo=struct();
-
-            % p minus fixed point
-            fixpinfo.pmin.x=1/2*(-1-b-sqrt(4*a+(1+b)^2));
-            fixpinfo.pmin.y=1/2*(-1-b-sqrt(4*a+(1+b)^2));
-            fixpinfo.pmin.z=(1+b+sqrt(4*a+(1+b)^2))/(2*(-1+xi));
-
-            % p plus fixed point
-            fixpinfo.pplu.x=1/2*(-1-b+sqrt(4*a+(1+b)^2));
-            fixpinfo.pplu.y=1/2*(-1-b+sqrt(4*a+(1+b)^2));
-            fixpinfo.pplu.z=(1+b-sqrt(4*a+(1+b)^2))/(2*(-1+xi));
-
-            
-
-             % computing them in compactified coordinates
-             fixp_names=fieldnames(fixpinfo);
-             for k=1:numel(fixp_names) 
-                 fixpinfo.(fixp_names{k})=thesystem.compactify(fixpinfo.(fixp_names{k}));
-             end
-            
-
-        end
-
          
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         %%%%%%%%%%% COMPACTIFICATION %%%%%%%%%
